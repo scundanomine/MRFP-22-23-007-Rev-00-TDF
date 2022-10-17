@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MRFP-22-23-007-Rev-00-TDF';
+  topics=["Angular", "React", "Vue"];
 }
