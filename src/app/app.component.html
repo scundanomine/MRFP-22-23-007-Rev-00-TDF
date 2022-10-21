@@ -8,9 +8,11 @@
 
     <div class="form-group">
       <label >Name</label>
-      <input type="text" #name required class="form-control" name="name" [(ngModel)]="userModel.name">
+      <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched " required class="form-control" name="name" [(ngModel)]="userModel.name">
+      <!-- <p *ngIf="name.invalid && name.touched">
+        Please Enter the name
+      </p> -->
     </div>
-        {{name.className}}
     <div class="form-group">
       <label>Email</label>
       <input type="email" class="form-control" name="email" [(ngModel)]="userModel.email">
@@ -18,7 +20,7 @@
 
     <div class="form-group">
       <label>Phone</label>
-      <input type="tel" class="form-control" name="phone" [(ngModel)]="userModel.phone">
+      <input type="tel" #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" name="phone" [(ngModel)]="userModel.phone">
     </div>
 
     <div class="form-group">
@@ -48,6 +50,6 @@
       </div>
     </div>
 
-    <button class="btn btn-primary" type="submit">Submit Form</button>
+    <button (click)="onClick(name.invalid||false, name.touched||false,'name')" class="btn btn-primary" type="submit">Submit Form</button>
   </form>
 </div>
