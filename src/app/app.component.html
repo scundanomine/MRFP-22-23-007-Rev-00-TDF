@@ -28,7 +28,7 @@
     <div class="form-group">
       <label>Topic</label>
       <select name="topic" id="" class="custom-select" [(ngModel)]="userModel.topic">
-        <option selected>I am interested in</option>
+        <option value="">I am interested in</option>
         <option *ngFor="let top of topics">{{top}}</option>
       </select>
     </div>
